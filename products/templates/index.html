@@ -1,0 +1,49 @@
+  <style>
+      body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+
+		}
+
+		.products{
+		display: flex;
+		flex-wrap: wrap;
+		width: 80%;
+		justify-content: space-between;
+		padding: 20px;
+
+		}
+
+		.card{
+		padding: 20px;
+		width: 80%;
+		height: 100%;
+		}
+
+
+
+  </style>
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Products</h1>
+
+<div class="products">
+    {% for product in products %}
+    <div class="col">
+        <div class="card" >
+            <img src="{{ product.image_url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">${{ product.price }}, Stock:{{product.stock}}</p>
+                <a href="#" class="btn btn-primary">Add to cart</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
