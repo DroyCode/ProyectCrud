@@ -2,25 +2,34 @@
 
 {% block content %}
 
-
+<style>
+  img {
+  width: 50px;
+  }
+</style>
 <h1>my products</h1>
 <table class="table">
   <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Product</th>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-    </tr>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Product</th>
+    <th scope="col">Name</th>
+    <th scope="col">Price</th>
+  </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>{{ product.image_url }}</td>
-      <td>{{ product.name }}</td>
-      <td>${{ product.price }}</td>
-    </tr>
+  {% for product in products %}
+  <tr>
+    <th scope="row">{{product.id}}</th>
+    <td>
+      <img src="{{ product.image_url }}" alt="">
+    </td>
+    <td>{{ product.name }}</td>
+    <td>${{ product.price }}</td>
+  </tr>
+  {% endfor %}
   </tbody>
+
 </table>
 
 

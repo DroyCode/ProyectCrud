@@ -52,7 +52,8 @@ def index(request):
 
 
 def myproducts(request):
-    return render(request, 'myproducts.html',)
+    products = Product.objects.all()
+    return render(request, 'myproducts.html', {'products': products})
 
 
 def add_to_cart(request):
